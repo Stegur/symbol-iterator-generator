@@ -18,18 +18,9 @@ export default class Team {
     return [...this.members];
   }
 
-  [Symbol.iterator]() {
-    let index = 0;
-    const heroes = this.toArray();
-
-    return {
-      next() {
-        return {
-          done: !(index in heroes),
-          // eslint-disable-next-line no-plusplus
-          value: heroes[index++],
-        };
-      },
-    };
+  * [Symbol.iterator]() {
+    for (const hero of this.toArray()) {
+      yield hero;
+    }
   }
 }
