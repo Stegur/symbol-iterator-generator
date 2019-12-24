@@ -1,6 +1,27 @@
 // TODO: write your code here
-import sum from './basic';
+import Team from './Team';
+import Person from './Person';
 
-console.log('worked');
+const team = new Team();
 
-console.log(sum([1, 2]));
+const lora = new Person('Lora', 'Magician');
+const ursam = new Person('Ursam', 'Daemon');
+const mankal = new Person('Mankal', 'Swordsman');
+
+// team.add(lora);
+// team.add(ursam);
+team.add(mankal);
+team.addAll(lora, ursam, mankal);
+
+// console.log(team);
+
+// const arrayOfHeroes = team.toArray();
+// console.log(team.members);
+// console.log(arrayOfHeroes);
+
+
+// console.log(...team);
+
+for (const hero of team) {
+  console.log(hero);
+}
